@@ -13,12 +13,11 @@ import {
 } from './avisos'
 
 /*
- * Candidato de visual "referência" (Constituição, Princípio IV, regime B).
+ * Portal de avisos, visual "referência" (Constituição, Princípio IV, regime B).
  *
  * É a proposta que o titular enviou, recriada a partir do arquivo dele: mesma estrutura,
  * mesmos valores, agora em tokens e com o conteúdo vindo de `avisos.ts` em vez de escrito
- * na marcação. Serve de linha de base na escolha — é contra ela que os outros candidatos
- * são comparados.
+ * na marcação. Foi a direção escolhida entre os três candidatos, em 2026-09-24.
  *
  * Duas diferenças em relação ao original, ambas deliberadas e declaradas:
  *   1. o contorno do botão de filtro escureceu para alcançar 3:1 (ver `tokens.css`);

@@ -1,12 +1,3 @@
-/*
- * NOTA DE DUPLICAÇÃO — deliberada e temporária.
- *
- * Este arquivo é cópia do de `sites/portal-avisos/`. Nenhum site importa arquivo de outro
- * (Princípio I), e os três candidatos de visual precisam do mesmo conteúdo para serem
- * comparados de verdade. Escolhida a direção, os candidatos perdedores são apagados e
- * sobra uma cópia só. Enquanto os três existirem: aviso novo entra nos três.
- */
-
 /**
  * Conteúdo do portal de avisos.
  *
@@ -54,9 +45,8 @@ export const DESTAQUE = {
   /**
    * Dado tabular do destaque, para quem o exibe em tabela em vez de em prosa.
    *
-   * Existe porque estava **escrito na marcação** do `portal-avisos-mural`: aviso novo
-   * trocaria o texto e deixaria os números velhos na tela, sem nada reclamar. Achado ao
-   * gerar a vitrine pública, quando a troca de conteúdo não alcançou aqueles dois campos.
+   * Fica aqui, e não na marcação, para que aviso novo não troque o texto e deixe os
+   * números velhos na tela sem nada reclamar.
    */
   dados: [
     { rotulo: 'anterior', valor: '00.394.411/0001-09', revogado: true },

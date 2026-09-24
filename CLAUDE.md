@@ -43,8 +43,6 @@ sobre hábito herdado de outro projeto. Os pontos que mais costumam ser violados
 
 ### Estado atual, setembro de 2026
 
-Três candidatos de visual para a primeira página do canal de avisos coexistem em `sites/`:
-`portal-avisos` (regime A), `portal-avisos-mural` e `portal-avisos-referencia` (regime B).
-Mostram o mesmo conteúdo, para a escolha ser feita na tela e não no papel. **Enquanto os três
-existirem, aviso novo entra nos três**: `avisos.ts` é cópia deliberada em cada um, porque
-nenhum site importa arquivo de outro. Escolhida a direção, os perdedores são apagados.
+O canal de avisos é `sites/portal-avisos-referencia` (regime B), escolhido em 2026-09-24
+entre três candidatos; os outros dois foram apagados. `sites/painel-exemplo` é o molde que
+`npm run novo-site` copia, não um site em uso.

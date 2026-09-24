@@ -1,7 +1,7 @@
 # portal-avisos-referencia
 
-Candidato de visual para a primeira página do canal de avisos. É a **proposta do titular**,
-recriada dentro do projeto para servir de linha de base na escolha.
+Primeira página do canal de avisos, escolhida em 2026-09-24. É a **proposta do titular**,
+recriada dentro do projeto.
 
 ## Registro da decisão (Princípio IV, regime B)
 
@@ -29,9 +29,7 @@ declarados e não eram usados em nenhuma regra.
 
 ## Como publicar um aviso
 
-Editar `avisos.ts`. **Enquanto os três candidatos existirem, aviso novo entra nos três**:
-`avisos.ts` é cópia deliberada em cada um, porque nenhum site importa arquivo de outro
-(Princípio I). Escolhida a direção, os perdedores são apagados e sobra uma cópia só.
+Editar `avisos.ts`. É o único lugar onde o conteúdo mora: a marcação não escreve texto de aviso.
 
 ## Parâmetro de URL
 

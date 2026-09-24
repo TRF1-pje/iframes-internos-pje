@@ -26,14 +26,10 @@ npm run montagem       # portão sobre o dist/: as páginas montam mesmo? (roda 
 | Slug | O que é |
 |---|---|
 | `painel-exemplo` | molde do repositório, no skin do PJe. É o que `npm run novo-site` copia |
-| `portal-avisos` | canal de avisos no skin do PJe (regime A) — **candidato** |
-| `portal-avisos-mural` | canal de avisos, direção "mural técnico" (regime B) — **candidato** |
-| `portal-avisos-referencia` | canal de avisos, proposta do titular recriada (regime B) — **candidato** |
+| `portal-avisos-referencia` | canal de avisos, proposta do titular recriada (regime B) |
 
-Os três candidatos mostram o **mesmo conteúdo** com desenhos diferentes, para a escolha ser
-feita na tela e não no papel. Consequência disso, enquanto durar: `avisos.ts` é cópia deliberada
-em cada um — nenhum site importa arquivo de outro (Princípio I) —, então **aviso novo entra nos
-três**. Escolhida a direção, os perdedores são apagados e sobra uma cópia só.
+Os outros dois candidatos de visual do portal (`portal-avisos`, no skin do PJe, e
+`portal-avisos-mural`) foram apagados em 2026-09-24, quando a referência foi escolhida.
 
 ## Criar um site novo
 
@@ -166,17 +162,14 @@ correta viraram teste normal — foi só apagar o `.todo`.
 | Não há validador de URL em `src/shared/iframe/` | o cabeçalho do módulo promete "escapado antes de exibir", e hoje quem escapa é a interpolação do Vue, não o contrato. `:href="textParam('link')"` aceitaria `javascript:` |
 | O teto de peso é só de **JS** | fonte, imagem e *chunk* de `import()` dinâmico não entram na conta. É a letra do Princípio VII; a razão dele é peso de página, que é maior |
 | Protocolo-relativo em `import("//host")` e em *template literal* | `hostsExternos` cobre atributo e `url()`, com e sem aspas. Import dinâmico segue invisível |
-| O regime B não é verificado estruturalmente | um site com `tokens.css` próprio pode importar `@shared/base.css` e nada reclama, embora o Princípio IV diga "nunca os dois juntos". Hoje os quatro sites estão certos, conferido à mão |
+| O regime B não é verificado estruturalmente | um site com `tokens.css` próprio pode importar `@shared/base.css` e nada reclama, embora o Princípio IV diga "nunca os dois juntos". Hoje os dois sites estão certos, conferido à mão |
 | `vite.config.ts` reescreve a paleta do PJe em literal | a página de índice envelhece em silêncio quando o skin mudar, e é a primeira que alguém abre |
-| Os três `avisos.ts` têm de andar juntos | aviso novo em dois dos três passa por todos os portões |
 | Acessibilidade além de contraste | ordem de tabulação, semântica e `aria-*` estão feitos à mão e bem feitos, e nada impede a próxima página de perder isso |
 
 ## Pendências abertas
 
 Estão registradas como TODO na constituição e são dívida com prazo, não anotação:
 
-- empacotar o woff2 do IBM Plex para o `portal-avisos-mural` — hoje ele roda em fonte de
-  sistema, porque CDN está fora;
 - matriz de navegadores do parque de máquinas;
 - conferir os tokens contra telas internas do PJe com usuário autenticado — a consulta pública
   não mostra aba, menu lateral nem tabela de resultados preenchida;

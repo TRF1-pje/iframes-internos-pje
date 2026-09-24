@@ -99,22 +99,6 @@ const FONTES = [
     ],
   },
   {
-    titulo: 'Mural técnico — sites/portal-avisos-mural (regime B)',
-    arquivo: 'sites/portal-avisos-mural/tokens.css',
-    prefixo: 'mural',
-    pares: [
-      ['título e tinta sobre papel', 'tinta', 'papel', 4.5],
-      ['CNPJ em vigor sobre o quadro branco', 'tinta', 'superficie', 4.5],
-      ['texto de resumo sobre papel', 'texto', 'papel', 4.5],
-      ['metadado suave sobre papel', 'texto-suave', 'papel', 4.5],
-      ['rótulo suave sobre o quadro branco', 'texto-suave', 'superficie', 4.5],
-      ['etiqueta ATENÇÃO sobre papel', 'atencao', 'papel', 4.5],
-      ['coluna de categoria e link sobre papel', 'categoria', 'papel', 4.5],
-      ['contorno do botão de recorte', 'contorno-controle', 'papel', 3],
-      ['anel de foco sobre papel', 'fio-forte', 'papel', 3],
-    ],
-  },
-  {
     titulo: 'Referência do titular — sites/portal-avisos-referencia (regime B)',
     arquivo: 'sites/portal-avisos-referencia/tokens.css',
     prefixo: 'ref',
