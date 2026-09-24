@@ -1,0 +1,57 @@
+# Publicação no GitHub Pages.
+#
+# Mesma regra da esteira do GitLab: portão antes de publicação, sem exceção. Em todo branch
+# e em todo pull request rodam os portões; só `master` publica, e `master` se muda por PR.
+#
+# Aqui a esteira tem rede pública, então instala as dependências com `npm ci` em vez de
+# puxar a imagem do Harbor (`ci/Dockerfile`), que o GitHub não alcança.
+#
+# A base do build continua `./` (vite.config.ts): o Pages serve em /<repositório>/ e os
+# caminhos relativos funcionam lá sem parâmetro.
+
+name: pages
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run testar
+      # `npm run build` já roda typecheck, contraste e, depois de empacotar,
+      # `verificar-sites` sobre o dist/.
+      - run: npm run build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,29 @@
+/*
+ * Skin do PJe (Princípio IV, regime A): veste o reset agnóstico com os tokens medidos
+ * da interface real. Site em regime B não importa este arquivo — importa `reset.css` e
+ * o próprio `tokens.css`.
+ */
+@import './tokens.css';
+@import './reset.css';
+
+body {
+  background: var(--pje-fundo);
+  color: var(--pje-texto);
+  font-family: var(--pje-fonte);
+  font-size: var(--pje-texto-base);
+  line-height: var(--pje-linha);
+}
+
+a {
+  color: var(--pje-link);
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--pje-link-hover);
+  text-decoration: underline;
+}
+
+:focus-visible {
+  outline-color: var(--pje-link-hover);
+}

@@ -1,0 +1,39 @@
+{
+  "name": "iframes-internos-pje",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Sites estáticos exibidos dentro do PJe por iframe",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && node scripts/contraste.mjs && vite build && node scripts/verificar-sites.mjs && node --test scripts/montagem-portao.mjs",
+    "preview": "vite preview",
+    "typecheck": "vue-tsc --noEmit",
+    "contraste": "node scripts/contraste.mjs",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "novo-site": "node scripts/novo-site.mjs",
+    "verificar-sites": "node scripts/verificar-sites.mjs",
+    "testar": "node --test \"scripts/*.test.mjs\"",
+    "montagem": "node --test scripts/montagem-portao.mjs"
+  },
+  "dependencies": {
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.18.0",
+    "@types/node": "^22.10.5",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vue/eslint-config-typescript": "^14.2.0",
+    "eslint": "^9.18.0",
+    "eslint-plugin-sonarjs": "^4.2.1",
+    "eslint-plugin-vue": "^9.32.0",
+    "jsdom": "^30.0.1",
+    "typescript": "~5.7.3",
+    "vite": "^6.0.7",
+    "vue-tsc": "^2.2.0"
+  }
+}

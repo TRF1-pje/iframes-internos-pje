@@ -1,0 +1,18 @@
+node_modules/
+dist/
+*.local
+.DS_Store
+.vite/
+
+# Agent folders podem guardar credencial — versione só o que for revisado
+.claude/settings.local.json
+
+# Hooks pessoais de agente. Só valem com o settings.local.json que os aciona, que também
+# não é versionado — versionar o script sozinho entregaria arquivo inerte ao time.
+.claude/hooks/
+
+# Skills do mattpocock/skills: o conteúdo real é versionado em .agents/skills/.
+# .claude/skills/ é apenas um espelho de symlinks com caminho absoluto desta máquina.
+# Para recriá-lo depois de clonar: npx skills@latest experimental_install
+.claude/skills/*
+!.claude/skills/speckit-*

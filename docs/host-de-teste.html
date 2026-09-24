@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Host de teste — iframes internos PJe</title>
+    <style>
+      body { font: 14px "Segoe UI", system-ui, Arial, sans-serif; margin: 0; padding: 24px; background: #dbe3e8; color: #333 }
+      main { max-width: 1000px; margin: 0 auto }
+      h1 { font-size: 20px; margin: 0 0 4px }
+      .aviso { color: #6b6b6b; font-size: 13px; margin: 0 0 16px; max-width: 70ch }
+      .moldura { background: #fff; border: 2px dashed #8a94a0; padding: 8px }
+      code { font-family: Consolas, monospace }
+      .legenda { color: #6b6b6b; font-size: 12px; margin: 0 0 6px; display: flex; gap: 16px; flex-wrap: wrap }
+      .legenda b { color: #333 }
+      iframe { display: block; width: 100%; border: 0 }
+      label { display: block; font-size: 13px; margin: 16px 0 4px; font-weight: 700 }
+      input { width: 100%; padding: 8px; font: inherit; border: 1px solid #e1e6e9; border-radius: 2px }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Host de teste</h1>
+      <p class="aviso">
+        Simula o lado do PJe. A moldura tracejada é o <code>&lt;iframe&gt;</code>; ela cresce e
+        encolhe conforme a página embutida informa a própria altura. Se a moldura ficar com sobra
+        ou cortar conteúdo, o contrato de altura está quebrado — é aqui que isso aparece.
+      </p>
+
+      <label for="url">URL do site embutido</label>
+      <input id="url" type="text" />
+
+      <p class="legenda">
+        <span>último evento: <b id="evento">nenhum</b></span>
+        <span>site: <b id="site">—</b></span>
+        <span>altura recebida: <b id="altura">—</b></span>
+        <span>mensagens: <b id="contagem">0</b></span>
+      </p>
+
+      <div class="moldura">
+        <iframe id="quadro" title="Site embutido" height="150"></iframe>
+      </div>
+    </main>
+
+    <script>
+      // ---------------------------------------------------------------------
+      // Este é o código que o lado do PJe precisa ter. Nada além disto.
+      // ---------------------------------------------------------------------
+      const CANAL = 'iframes-internos-pje'
+      const quadro = document.getElementById('quadro')
+      let contagem = 0
+
+      window.addEventListener('message', (evento) => {
+        const dados = evento.data
+        if (!dados || dados.channel !== CANAL) return
+
+        contagem += 1
+        document.getElementById('evento').textContent = dados.type
+        document.getElementById('site').textContent = dados.site
+        document.getElementById('contagem').textContent = String(contagem)
+
+        if (dados.type === 'resize') {
+          quadro.height = dados.height
+          document.getElementById('altura').textContent = dados.height + 'px'
+        }
+      })
+      // ---------------------------------------------------------------------
+
+      const campo = document.getElementById('url')
+      const padrao =
+        new URLSearchParams(location.search).get('alvo') ??
+        '../dist/sites/painel-exemplo/?numeroProcesso=0001234-56.2026.4.01.3400&orgao=1ª Vara Federal Cível da SJDF&classe=previdenciario'
+
+      campo.value = padrao
+      quadro.src = padrao
+      campo.addEventListener('change', () => {
+        quadro.height = 150
+        quadro.src = campo.value
+      })
+    </script>
+  </body>
+</html>

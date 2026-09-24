@@ -1,0 +1,36 @@
+/* Veste o reset agnóstico (`@shared/reset.css`) com a identidade deste site.
+   O skin do PJe não entra aqui — são regimes que não se misturam (Princípio IV). */
+
+body {
+  /* A faixa navy do topo é o fundo do body, como no original: a página é uma só
+     superfície, e o cabeçalho não é um bloco separado. */
+  background: linear-gradient(
+    180deg,
+    var(--ref-navy) 0 var(--ref-altura-faixa),
+    var(--ref-suave) var(--ref-altura-faixa) 100%
+  );
+  color: var(--ref-tinta);
+  font-family: var(--ref-fonte);
+  font-size: var(--ref-texto-base);
+  line-height: var(--ref-linha);
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline-color: var(--ref-navy);
+  outline-offset: 3px;
+}
+
+/* Em janela estreita a faixa encurta, como no original. */
+@media (max-width: 700px) {
+  body {
+    background: linear-gradient(
+      180deg,
+      var(--ref-navy) 0 8.7rem,
+      var(--ref-suave) 8.7rem 100%
+    );
+  }
+}

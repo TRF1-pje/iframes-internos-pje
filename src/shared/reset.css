@@ -1,0 +1,83 @@
+/*
+ * Reset agnóstico de identidade visual.
+ *
+ * Aqui não entra cor, fonte nem espaçamento — nada que o Princípio IV governe. Só o que
+ * vale em qualquer skin: caixa previsível, margem zerada, foco visível e utilitário de
+ * leitor de tela.
+ *
+ * Existe porque há dois regimes de identidade (Princípio IV): `src/shared/base.css` veste
+ * o skin do PJe sobre este reset, e um site em regime B veste o próprio sobre o mesmo
+ * reset. Sem esta separação, o site de identidade própria copiaria o reset inteiro.
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  /* O iframe rola no pai, não aqui: a altura vai por postMessage
+     (Constituição, Princípio III). */
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+dl,
+dd,
+figure,
+table,
+ul,
+ol {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+/* Contorno de foco herda a cor do texto do contexto: cada skin decide a cor, o reset
+   garante que o foco nunca fique invisível. */
+:focus-visible {
+  outline: 2px solid currentcolor;
+  outline-offset: 1px;
+}
+
+.apenas-leitor {
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

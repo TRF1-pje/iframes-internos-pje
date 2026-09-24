@@ -1,0 +1,100 @@
+/*
+ * Identidade própria do site (Constituição, Princípio IV, regime B).
+ *
+ * ORIGEM DA DECISÃO: proposta visual enviada pelo titular do projeto em 2026-09-09, no
+ * arquivo `portal-avisos-pje.html`. Entra no repositório como candidato para comparação.
+ * O registro está no README deste site.
+ *
+ * ORIGEM DOS VALORES: **todos** vêm daquele arquivo, lidos dele, não estimados — é
+ * recriação, não interpretação. Onde há divergência em relação ao original, ela está
+ * declarada no token, com o número que a motivou (é o rito do regime A aplicado aqui).
+ *
+ * O original declarava `--cyan`, `--green` e `--green-soft` e não os usava em nenhuma
+ * regra. Não foram trazidos: token que ninguém usa envelhece sem que ninguém perceba.
+ *
+ * Os literais que o original escrevia direto nas regras (`#a9e2eb` do eyebrow, `#e6f2f6`
+ * da etiqueta, `#f2c99e` da borda do destaque e os demais) estão aqui como token, porque
+ * o Princípio IV vale igual em regime B: nenhum componente escreve cor literal.
+ */
+
+:root {
+  /* Marca */
+  --ref-navy: #0b2d4d;
+  --ref-azul: #155d88; /* só no hover do filtro, como no original */
+
+  /* Superfícies */
+  --ref-branco: #ffffff;
+  --ref-suave: #f3f7f9;
+  --ref-etiqueta-fundo: #e6f2f6;
+
+  /* Texto */
+  --ref-tinta: #193044; /* 12,2:1 sobre branco */
+  --ref-suave-texto: #5b6b78; /* 5,5:1 sobre branco · 5,1:1 sobre a página */
+  --ref-sobre-marca: #ffffff; /* 14,0:1 sobre navy */
+  --ref-eyebrow: #a9e2eb; /* 9,9:1 sobre navy */
+  --ref-atualizado: #d8e5ee; /* 10,9:1 sobre navy */
+  --ref-filtro-texto: #28495e; /* 8,0:1 sobre branco */
+
+  /* Destaque — laranja de atenção */
+  --ref-laranja: #bd4f00;
+  --ref-laranja-fundo: #fff3e7;
+  --ref-laranja-borda: #f2c99e;
+  --ref-etiqueta-atencao: #8a3800; /* 7,3:1 sobre o fundo laranja-claro */
+  --ref-nota-fundo: #fff9f3;
+  --ref-nota-texto: #5b3a22; /* 9,3:1 sobre o fundo da nota */
+
+  /* Fios e bordas decorativas. Não entram na lista de pares do portão: separam cartão e
+     coluna, e a informação está no texto, não nelas (Princípio VIII). */
+  --ref-fio: #dbe4ea;
+  --ref-fio-rodape: #ccd9e0;
+  --ref-fio-vazio: #aec0cb;
+
+  /* Contorno do botão de filtro. DIVERGÊNCIA DECLARADA: o original usava `#c7d5de`, que
+     sobre o branco do botão rende 1,50:1 — muito abaixo do mínimo de 3:1 que a WCAG 1.4.11
+     exige do contorno de um controle. Como o botão não selecionado tem fundo branco sobre
+     página quase branca, esse contorno é a única coisa que diz onde o botão começa. Trocado
+     por `#76899a`: 3,60:1 sobre o branco e 3,34:1 sobre a página. É a mesma família de
+     cinza-azulado, um passo mais escura. */
+  --ref-filtro-borda: #76899a;
+
+  /* Sombra do destaque, do original */
+  --ref-sombra: 0 10px 34px rgba(10, 45, 77, 0.09);
+  --ref-sombra-cartao: 0 7px 22px rgba(10, 45, 77, 0.07);
+
+  /* Véus sobre a faixa navy, do original */
+  --ref-marca-borda: rgba(255, 255, 255, 0.34);
+  --ref-marca-fundo: rgba(255, 255, 255, 0.08);
+
+  /* Tipografia — a pilha do original. Nenhuma fonte externa: Segoe UI existe no parque de
+     máquinas do Tribunal, e o Princípio VII proíbe CDN. */
+  --ref-fonte: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --ref-texto-xs: 0.76rem;
+  --ref-texto-sm: 0.83rem;
+  --ref-texto-base: 1rem;
+  --ref-texto-secao: 1.2rem;
+
+  --ref-linha: 1.55;
+  --ref-linha-apertada: 1.12;
+
+  /* Espaçamento e forma, do original */
+  --ref-esp-1: 0.25rem;
+  --ref-esp-2: 0.5rem;
+  --ref-esp-3: 0.75rem;
+  --ref-esp-4: 1rem;
+  --ref-esp-5: 1.25rem;
+  --ref-esp-6: 1.5rem;
+  --ref-esp-destaque: clamp(1.25rem, 4vw, 2rem);
+
+  --ref-raio-cartao: 0.85rem;
+  --ref-raio-destaque: 1rem;
+  --ref-raio-etiqueta: 0.35rem;
+  --ref-raio-marca: 0.75rem;
+  --ref-raio-pilula: 999px;
+
+  --ref-titulo-h1: clamp(1.35rem, 3vw, 2rem);
+  --ref-titulo-destaque: clamp(1.25rem, 3vw, 1.7rem);
+
+  --ref-altura-faixa: 10.75rem;
+  --ref-col-data: 8.5rem;
+}

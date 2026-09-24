@@ -1,0 +1,87 @@
+/*
+ * Identidade própria do site (Constituição, Princípio IV, regime B).
+ *
+ * ORIGEM DA DECISÃO: o titular recusou o skin do PJe para este canal por ser sóbrio demais
+ * para comunicação, em 2026-09-09. O registro está no README deste site.
+ *
+ * ORIGEM DOS VALORES: paleta neutra fria própria, escolhida para o desenho "mural técnico" —
+ * documento de trabalho, não tela de sistema. Não é medição do PJe e não finge ser. Cada
+ * valor abaixo diz o que o obrigou; onde o que obrigou foi contraste, o número está escrito
+ * e é o `npm run contraste` que o confere.
+ *
+ * O par de fontes é o que dá caráter ao desenho: mono para metadado, sans para texto. IBM
+ * Plex é o alvo; o que existe no parque de máquinas do Tribunal é Consolas e Segoe UI, e é
+ * neles que o desenho tem de funcionar — por isso a pilha começa em Plex e cai neles sem
+ * ruído. CDN está fora (Princípio VII): empacotar o woff2 do Plex no repositório é item
+ * aberto, e até lá a página roda em fonte de sistema.
+ */
+
+:root {
+  /* Superfícies — cinza frio quase branco, para o branco do cartão destacar sem sombra. */
+  --mural-papel: #f7f8fa;
+  --mural-superficie: #ffffff;
+
+  /* Fios. Decorativos: separam coluna e linha de tabela, e a informação está no texto,
+     não neles (Princípio VIII). Por isso não entram na lista de pares. */
+  --mural-fio: #dfe3e8;
+  --mural-fio-forte: #22262b;
+
+  /* Contorno de CONTROLE, e por isso não é decorativo: a WCAG 1.4.11 pede 3:1 do que
+     delimita um componente de interface, e o Princípio VIII repete isso.
+     
+     Existe separado do `--mural-fio` por um defeito encontrado em revisão: o botão do
+     recorte — o único elemento interativo desta página — usava o fio da tabela, que sobre
+     o papel rende 1,21:1. Escurecer o fio inteiro resolveria a acessibilidade e estragaria
+     o desenho, que depende de hairline discreta na tabela. Então são dois tokens: fio para
+     separar, contorno para delimitar controle.
+
+     **3,62:1 sobre papel**, que e o que `npm run contraste` imprime. E é a unica medida que
+     cabe aqui: o botao tem `background: none` e vive sobre o papel, entao nao existe versao
+     dele sobre branco. Uma primeira versao deste comentario dizia "3,55:1 sobre papel,
+     3,77:1 sobre branco" — numero errado e superficie inexistente, os dois apontados em
+     revisao. Numero em comentario que ninguem confere e a divergencia silenciosa que o
+     Principio IV proibe, so deslocada do CSS para a prosa. */
+  --mural-contorno-controle: #7a838c;
+
+  /* Texto — três níveis, e nenhum abaixo de 5:1 sobre as duas superfícies. */
+  --mural-tinta: #22262b; /* 14,4:1 sobre papel */
+  --mural-texto: #4a5158; /* 7,6:1 sobre papel */
+  --mural-texto-suave: #616a72; /* 5,2:1 sobre papel — piso da paleta */
+
+  /* Sinalização. Duas cores, e só duas: uma para o que exige atenção, uma para categoria.
+     Ambas escurecidas até passar AA como texto normal, não só como rótulo grande. */
+  --mural-atencao: #a8322a; /* 6,3:1 sobre papel */
+  --mural-categoria: #1f5b8f; /* 6,7:1 sobre papel */
+
+  /* Tipografia */
+  --mural-fonte: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  --mural-fonte-mono: "IBM Plex Mono", Consolas, "Cascadia Mono", "Courier New", monospace;
+
+  --mural-texto-xs: 10px;
+  --mural-texto-sm: 12px;
+  --mural-texto-base: 15px;
+  --mural-texto-md: 16px;
+  --mural-texto-lg: 22px;
+  --mural-texto-xl: 23px;
+
+  --mural-linha: 1.55;
+  --mural-linha-apertada: 1.28;
+
+  /* Espaçamento */
+  --mural-esp-1: 4px;
+  --mural-esp-2: 8px;
+  --mural-esp-3: 12px;
+  --mural-esp-4: 16px;
+  --mural-esp-5: 22px;
+  --mural-esp-6: 30px;
+  --mural-esp-7: 44px;
+
+  /* Forma — canto reto. O desenho é de documento, e documento não tem canto arredondado. */
+  --mural-raio: 0;
+
+  /* Colunas fixas da tabela. Largura de layout, não identidade: cabem `28/08` e
+     `ORIENTAÇÃO` sem quebrar. */
+  --mural-col-data: 78px;
+  --mural-col-categoria: 118px;
+  --mural-col-recorte: 210px;
+}

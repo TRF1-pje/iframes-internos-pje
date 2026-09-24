@@ -1,0 +1,98 @@
+/*
+ * Identidade visual do PJe (Constituição, Princípio IV).
+ * Nenhum componente escreve cor, fonte ou espaçamento literal — sempre `var(--...)`.
+ *
+ * ORIGEM: medidos da interface real do PJe do TRF1, não estimados. A consulta pública
+ * roda o mesmo skin do sistema autenticado e é acessível sem login:
+ *   https://pje1g.trf1.jus.br/consultapublica/ConsultaPublica/listView.seam
+ * Captura e amostragem de pixel em 2026-09-09. Onde o valor veio de medição, o
+ * comentário diz de onde.
+ *
+ * O PJe é JSF + RichFaces + Bootstrap. As faixas de mensagem são as do Bootstrap 3
+ * sem alteração — por isso os valores batem com uma tabela conhecida, e não são nossos.
+ *
+ * CONTRASTE: o alvo é WCAG AA (4,5:1 texto normal, 3:1 texto grande e componentes),
+ * que é o que o próprio PJe alcança e o que o eMAG exige. `npm run contraste` mede
+ * cada par e reprova o build. Onde dá para superar sem sair do padrão PJe, superamos —
+ * o corpo de texto fica em 12,6:1 —, mas fidelidade ao PJe vence em superfície de marca.
+ *
+ * TODO: a amostragem cobre a consulta pública. Telas internas podem ter componentes que
+ * ela não mostra (abas, menu lateral, tabela listrada). Conferir com usuário autenticado.
+ */
+
+:root {
+  /* Marca — medidos por pixel na interface.
+   *
+   * O botão primário do PJe é #0084ac, que com texto branco rende 4,29:1 — abaixo
+   * do mínimo AA de 4,5:1 para texto normal. Não replicamos esse valor: usamos o
+   * #0078aa da barra, que é cor do mesmo sistema e alcança 4,92:1. É a única
+   * divergência deliberada em relação ao PJe, e está aqui declarada. */
+  --pje-barra: #0078aa;
+  --pje-sobre-marca: #ffffff;
+
+  /* Superfícies */
+  --pje-superficie: #ffffff;
+  --pje-fundo: #ebf0f3;
+  --pje-borda: #e1e6e9;
+  --pje-listra: #f7f9fa;
+
+  /* Texto */
+  --pje-texto: #333333;
+  --pje-texto-rotulo: #454545;
+  --pje-texto-suave: #6b6b6b;
+  --pje-link: #0078aa;
+  --pje-link-hover: #005a80;
+
+  /* Faixas de mensagem — paleta do Bootstrap 3, que é a que o PJe usa.
+   * Cada faixa tem cor de link própria (o `.alert-link` do Bootstrap): o azul de
+   * link normal rende só 4,08:1 sobre o fundo azul-claro da faixa de informação. */
+  --pje-info-fundo: #d9edf7;
+  --pje-info-borda: #bce8f1;
+  --pje-info-texto: #31708f;
+  --pje-info-link: #245269;
+
+  --pje-aviso-fundo: #fcf8e3;
+  --pje-aviso-borda: #faebcc;
+  --pje-aviso-texto: #8a6d3b;
+  --pje-aviso-link: #66512c;
+
+  --pje-erro-fundo: #f2dede;
+  --pje-erro-borda: #ebccd1;
+  --pje-erro-texto: #a94442;
+  --pje-erro-link: #843534;
+
+  --pje-sucesso-fundo: #dff0d8;
+  --pje-sucesso-borda: #d6e9c6;
+  --pje-sucesso-texto: #3c763d;
+  --pje-sucesso-link: #2b542c;
+
+  /* Tipografia — Segoe UI, confirmada pelas formas das letras na captura.
+   * É a pilha de fonte de sistema do Bootstrap 4, que no parque Windows do
+   * Tribunal resolve para Segoe UI. */
+  --pje-fonte:
+    "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --pje-fonte-mono: Consolas, "Cascadia Mono", "Courier New", monospace;
+
+  --pje-texto-sm: 12px;
+  --pje-texto-base: 14px;
+  --pje-texto-titulo: 17px;
+
+  --pje-linha: 1.5;
+  --pje-linha-apertada: 1.3;
+
+  /* Espaçamento */
+  --pje-esp-1: 4px;
+  --pje-esp-2: 8px;
+  --pje-esp-3: 12px;
+  --pje-esp-4: 16px;
+  --pje-esp-5: 20px;
+  --pje-esp-6: 24px;
+
+  /* Forma — o PJe arredonda pouco */
+  --pje-raio: 2px;
+  --pje-raio-faixa: 4px;
+  --pje-sombra: 0 1px 2px rgba(0, 0, 0, 0.06);
+
+  --pje-altura-barra: 50px;
+  --pje-largura-rotulo: 180px;
+}
